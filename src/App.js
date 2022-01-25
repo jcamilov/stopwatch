@@ -1,10 +1,10 @@
-import React from "react";
-import { useContext } from "react";
-import AppContext, { AppProvider } from "./context/AppContext";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { AppProvider } from "./context/AppContext";
 import { themeChange } from "theme-change";
 import Navbar from "./components/Navbar";
 import SetTimer from "./components/SetTimer";
+import Modal from "./components/Modal";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
@@ -16,7 +16,9 @@ function App() {
     <React.StrictMode>
       <AppProvider>
         <Navbar />
-        <SetTimer />
+        <SetTimer className="" />
+        {/* <Modal /> */}
+        <Footer />
       </AppProvider>
     </React.StrictMode>
   );
