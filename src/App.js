@@ -4,6 +4,7 @@ import { themeChange } from "theme-change";
 import Navbar from "./components/Navbar";
 import SetTimer from "./components/SetTimer";
 import Footer from "./components/Footer";
+import Alert from "./components/Alert";
 
 function App() {
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
       <AppProvider>
         <Navbar />
         <SetTimer className="" />
+        <Alert />
         <Footer />
       </AppProvider>
     </React.StrictMode>

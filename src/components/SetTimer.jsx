@@ -9,7 +9,6 @@ function SetTimer() {
     minutes,
     seconds,
     counter,
-    finishTrigger,
     setTheMinutes,
     setTheSeconds,
     buttonState,
@@ -37,8 +36,9 @@ function SetTimer() {
   const handleClickStart = (e) => {
     switch (buttonState.startButton.caption) {
       case "START":
-        setTheButtonState("PAUSE");
+        if (Number(minutes) * 60 + Number(seconds) === 0) return;
         setTheCounter(Number(minutes) * 60 + Number(seconds));
+        setTheButtonState("PAUSE");
         setTriggerFinished(false);
         startTimer();
         break;
@@ -53,7 +53,6 @@ function SetTimer() {
       default:
         break;
     }
-
     return;
   };
 
