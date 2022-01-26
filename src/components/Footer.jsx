@@ -9,6 +9,7 @@ function Footer() {
           href="https://www.linkedin.com/in/jcamilovargas/"
           className="link link-hover"
           target="_blank"
+          rel="noreferrer"
         >
           LinkedIn
         </a>
@@ -16,6 +17,7 @@ function Footer() {
           href="mailto:vargasjcamilo@gmail.com"
           className="link link-hover"
           target="_blank"
+          rel="noreferrer"
         >
           E-mail
         </a>
@@ -23,6 +25,7 @@ function Footer() {
           href="https://github.com/jcamilov"
           className="link link-hover"
           target="_blank"
+          rel="noreferrer"
         >
           Github
         </a>

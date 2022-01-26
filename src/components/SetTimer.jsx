@@ -9,6 +9,7 @@ function SetTimer() {
     minutes,
     seconds,
     counter,
+    finishTrigger,
     setTheMinutes,
     setTheSeconds,
     buttonState,
@@ -21,7 +22,7 @@ function SetTimer() {
     if (counter === 0 && buttonState.startButton.caption === "PAUSE") {
       stopPauseTimer("START");
       setTriggerFinished(true);
-      console.log("timer finished!!!");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }
   }, [counter]);
 
@@ -38,6 +39,7 @@ function SetTimer() {
       case "START":
         setTheButtonState("PAUSE");
         setTheCounter(Number(minutes) * 60 + Number(seconds));
+        setTriggerFinished(false);
         startTimer();
         break;
       case "PAUSE":
@@ -47,6 +49,8 @@ function SetTimer() {
       case "CONTINUE":
         setTheButtonState("PAUSE");
         startTimer();
+        break;
+      default:
         break;
     }
 
@@ -69,7 +73,9 @@ function SetTimer() {
   const handleClickStop = (e) => stopPauseTimer("stop");
 
   return (
-    <div className="grid grid-cols-1 rounded-lg border-4 py-9 bg-slate-200 border-slate-600 container mx-auto shadow-lg shadow-slate-600">
+    <div
+      className={`bg-slate-300 grid grid-cols-1 rounded-lg border-4 py-9  container mx-auto shadow-lg shadow-slate-600`}
+    >
       <div className="grid grid-cols-2 w-80 mx-auto">
         <div className="form-control mx-auto">
           <label className="input-group input-group-md">
@@ -99,7 +105,6 @@ function SetTimer() {
               type="number"
               min="0"
               max="59"
-              value={seconds}
               value={seconds < 10 ? 0 + seconds : seconds}
               disabled={buttonState.stopButton.enabled}
               className="input input-bordered w-20 text-center input-md text-xl font-bold text-slate-600"
